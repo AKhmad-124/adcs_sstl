@@ -8,6 +8,7 @@
 
 
     <xacro:include filename="cubesat_core.xacro"/>
+    <xacro:include filename="imu.xacro"/>
 
     
 </robot>

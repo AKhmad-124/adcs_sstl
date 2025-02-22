@@ -63,7 +63,7 @@
  
     </link>
                <gazebo reference = 'sat_body'>
-                <material>Gazebo/SkyBlue </material>
+                <material>Gazebo/Orange </material>
             </gazebo>
     <!-- reaction_wheel_xz link (lettering referes to the plane parallel to them) -->
     <joint name="rec_wheel_xz_joint" type="continuous">
@@ -93,14 +93,14 @@
 
     </link>
              <gazebo reference = 'rec_wheel_xz'>
-                <material>Gazebo/Black</material>
+                <material>Gazebo/Motorway</material>
             </gazebo>
 
     <!-- reaction wheel in yz plane link -->
     <joint name="rec_wheel_yz_joint" type="continuous">
         <parent link="sat_body" />
         <child link="rec_wheel_yz" />
-        <origin xyz="0.05 0.0 0.0" rpy="0 -${pi/2} 0" />
+        <origin xyz="0.05 0.0 0.0" rpy="0 ${pi/2} 0" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
 
@@ -124,14 +124,14 @@
 
     </link>
              <gazebo reference = 'rec_wheel_yz'>
-                <material>Gazebo/Black</material>
+                <material>Gazebo/Motorway</material>
             </gazebo>
 
     <!-- reaction wheel in xy plane link -->
     <joint name="rec_wheel_xy_joint" type="continuous">
         <parent link="sat_body" />
         <child link="rec_wheel_xy" />
-        <origin xyz="0.0 0.0 -0.15" rpy="0 0 0" />
+        <origin xyz="0.0 0.0 -0.15" rpy="0 ${pi} 0" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
 
@@ -155,7 +155,13 @@
 
     </link>
              <gazebo reference = 'rec_wheel_xy'>
-                <material>Gazebo/Black</material>
+                <material>Gazebo/Motorway</material>
             </gazebo>
+
+
+
+
+
+
 
 </robot>

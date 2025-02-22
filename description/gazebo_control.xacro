@@ -1,61 +1,28 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <!-- Gazebo ROS 2 Control Plugin -->
-    <gazebo>
-        <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so"/>
-    </gazebo>
+	<gazebo>
+	<plugin name="front_wheel" filename="libgazebo_ros_diff_drive.so">
+    	<!-- Wheel Information -->
+        <left_joint>rec_wheel_xz_joint</left_joint>
+        <right_joint>rec_wheel_yz_joint</right_joint>
+        <wheel_separation>0.35</wheel_separation>
+        <wheel_diameter>0.1</wheel_diameter>
+ 
+        <!-- Limit -->
+        <max_wheel_torque>200</max_wheel_torque>
+        <max_wheel_acceleration>10.0</max_wheel_acceleration>
+ 
+        <!-- Output -->
+        <odometry_frame>odom</odometry_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+ 
+        <publish_odom>true</publish_odom>
+        <publish_odom_tf>true</publish_odom_tf>
+        <publish_wheel_tf>true</publish_wheel_tf>
+ 
+	</plugin>
+  	</gazebo>
 
-    <!-- Reaction Wheel X -->
-    <gazebo>
-        <plugin name="rw_x_controller" filename="libgazebo_ros2_control.so">
-            <joint>rw_x_joint</joint>
-        </plugin>
-    </gazebo>
-
-    <!-- Reaction Wheel Y -->
-    <gazebo>
-        <plugin name="rw_y_controller" filename="libgazebo_ros2_control.so">
-            <joint>rw_y_joint</joint>
-        </plugin>
-    </gazebo>
-
-    <!-- Reaction Wheel Z -->
-    <gazebo>
-        <plugin name="rw_z_controller" filename="libgazebo_ros2_control.so">
-            <joint>rw_z_joint</joint>
-        </plugin>
-    </gazebo>
-
-    <!-- Transmission Setup -->
-    <transmission name="rw_x_trans">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="rw_x_joint">
-            <hardwareInterface>effort_controllers/JointEffortController</hardwareInterface>
-        </joint>
-        <actuator name="rw_x_motor">
-            <hardwareInterface>effort_controllers/JointEffortController</hardwareInterface>
-        </actuator>
-    </transmission>
-
-    <transmission name="rw_y_trans">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="rw_y_joint">
-            <hardwareInterface>effort_controllers/JointEffortController</hardwareInterface>
-        </joint>
-        <actuator name="rw_y_motor">
-            <hardwareInterface>effort_controllers/JointEffortController</hardwareInterface>
-        </actuator>
-    </transmission>
-
-    <transmission name="rw_z_trans">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="rw_z_joint">
-            <hardwareInterface>effort_controllers/JointEffortController</hardwareInterface>
-        </joint>
-        <actuator name="rw_z_motor">
-            <hardwareInterface>effort_controllers/JointEffortController</hardwareInterface>
-        </actuator>
-    </transmission>
 
 </robot>
