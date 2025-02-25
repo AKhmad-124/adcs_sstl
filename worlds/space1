@@ -1,5 +1,7 @@
 <sdf version='1.7'>
   <world name='zero_gravity_world'>
+  <plugin name="world_gazebo_plugin" filename="libworld_gazebo_plugin.so"/>
+
     <physics type='ode'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
@@ -51,7 +53,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>20.7772 -16.4453 10.2204 0 0.395643 2.3122</pose>
+        <pose>2.7772 -2.4453 1.5204 0 0.395643 2.3122</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>

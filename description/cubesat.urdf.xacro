@@ -4,11 +4,11 @@
 
 
 
-    <xacro:include filename="gazebo_control.xacro"/>
+    <!-- <xacro:include filename="gazebo_control.xacro"/> -->
 
 
     <xacro:include filename="cubesat_core.xacro"/>
-    <xacro:include filename="imu.xacro"/>
+    <!-- <xacro:include filename="imu.xacro"/> -->
 
     
 </robot>

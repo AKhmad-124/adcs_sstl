@@ -2,9 +2,15 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:include filename="inertial_macros.xacro" />
 
-<!-- adding the variable -->
-    <xacro:property name="wheel_radius" value="0.05"/>
-    <xacro:property name="wheel_thick" value="0.04"/>
+
+<gazebo>
+    <plugin name="my_model_plugin" filename="libmy_model_plugin.so">
+        <model_vel>0.2</model_vel>
+    </plugin>
+</gazebo>
+    <!-- adding the variable -->
+    <xacro:property name="wheel_radius" value="0.05" />
+    <xacro:property name="wheel_thick" value="0.04" />
 
     <material name="white">
         <color rgba="1.0 1.0 1.0 1.0" />
@@ -25,11 +31,11 @@
 
     <!-- base_footprint link -->
     <joint name="base_footprint_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="base_footprint"/>
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link" />
+        <child link="base_footprint" />
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
     </joint>
-    
+
     <link name="base_footprint"></link>
 
     <!-- sat_body link -->
@@ -49,7 +55,7 @@
             <material name="light_blue" />
         </visual>
         <collision>
-            
+
             <origin xyz="0.0 0.0 0.0" />
 
             <geometry>
@@ -60,11 +66,11 @@
         <xacro:inertial_box mass="0.5" x="0.1" y="0.1" z="0.3">
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
         </xacro:inertial_box>
- 
+
     </link>
-               <gazebo reference = 'sat_body'>
-                <material>Gazebo/Orange </material>
-            </gazebo>
+    <gazebo reference='sat_body'>
+        <material>Gazebo/Orange </material>
+    </gazebo>
     <!-- reaction_wheel_xz link (lettering referes to the plane parallel to them) -->
     <joint name="rec_wheel_xz_joint" type="continuous">
         <parent link="sat_body" />
@@ -92,9 +98,9 @@
         </xacro:inertial_cylinder>
 
     </link>
-             <gazebo reference = 'rec_wheel_xz'>
-                <material>Gazebo/Motorway</material>
-            </gazebo>
+    <gazebo reference='rec_wheel_xz'>
+        <material>Gazebo/Motorway</material>
+    </gazebo>
 
     <!-- reaction wheel in yz plane link -->
     <joint name="rec_wheel_yz_joint" type="continuous">
@@ -123,9 +129,9 @@
         </xacro:inertial_cylinder>
 
     </link>
-             <gazebo reference = 'rec_wheel_yz'>
-                <material>Gazebo/Motorway</material>
-            </gazebo>
+    <gazebo reference='rec_wheel_yz'>
+        <material>Gazebo/Motorway</material>
+    </gazebo>
 
     <!-- reaction wheel in xy plane link -->
     <joint name="rec_wheel_xy_joint" type="continuous">
@@ -154,14 +160,8 @@
         </xacro:inertial_cylinder>
 
     </link>
-             <gazebo reference = 'rec_wheel_xy'>
-                <material>Gazebo/Motorway</material>
-            </gazebo>
-
-
-
-
-
-
+    <gazebo reference='rec_wheel_xy'>
+        <material>Gazebo/Motorway</material>
+    </gazebo>
 
 </robot>

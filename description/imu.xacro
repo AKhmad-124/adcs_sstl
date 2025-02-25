@@ -4,16 +4,11 @@
     <joint name="imu_joint" type="fixed">
         <parent link="sat_body" />
         <child link="imu_link" />
-        <origin xyz="0.605 0.0 0.08" rpy="0.0 0.0 0.0" />
+        <origin xyz="0.0 0.0 0.00" rpy="0.0 0.0 0.0" />
     </joint>
 
     <link name="imu_link">
-        <visual>
-            <geometry>
-                <box size="0.01 0.03 0.03" />
-                <material name="white" />
-            </geometry>
-        </visual>
+
     </link>
 
 
@@ -30,7 +25,6 @@
         <topicName>imu</topicName>
         <bodyName>imu_link</bodyName>
         <updateRateHZ>10.0</updateRateHZ>
-        <gaussianNoise>0.1</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
         <rpyOffset>0 0 0</rpyOffset>
         <frameName>imu_link</frameName>
