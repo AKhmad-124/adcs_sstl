@@ -3,11 +3,7 @@
     <xacro:include filename="inertial_macros.xacro" />
 
 
-<gazebo>
-    <plugin name="my_model_plugin" filename="libmy_model_plugin.so">
-        <model_vel>0.2</model_vel>
-    </plugin>
-</gazebo>
+
     <!-- adding the variable -->
     <xacro:property name="wheel_radius" value="0.05" />
     <xacro:property name="wheel_thick" value="0.04" />

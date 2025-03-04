@@ -1,6 +1,6 @@
 <sdf version='1.7'>
   <world name='zero_gravity_world'>
-  <plugin name="world_gazebo_plugin" filename="libworld_gazebo_plugin.so"/>
+  <!-- <plugin name="world_gazebo_plugin" filename="libworld_gazebo_plugin.so"/> -->
 
     <physics type='ode'>
       <max_step_size>0.001</max_step_size>

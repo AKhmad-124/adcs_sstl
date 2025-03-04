@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+    
+
+<gazebo>
+    <!-- <plugin name="my_model_plugin" filename="libmy_model_plugin.so"> -->
+        <!-- <model_vel>0.2</model_vel> -->
+        <!-- <model_ang_vel>30</model_ang_vel> -->
+    <!-- </plugin> -->
+
+        <plugin name='rec_wheel_control' filename='libreaction_wheel_plugin.so'/>
+
+</gazebo>
+
+    
+</robot>
