@@ -28,7 +28,7 @@
         <xyzOffset>0 0 0</xyzOffset>
         <rpyOffset>0 0 0</rpyOffset>
         <frameName>imu_link</frameName>
-        <initialOrientationAsReference>false</initialOrientationAsReference>
+        <initialOrientationAsReference>true</initialOrientationAsReference>
       </plugin>
       <pose>0 0 0 0 0 0</pose>
     </sensor>

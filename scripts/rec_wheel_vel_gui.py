@@ -19,7 +19,7 @@ class WheelSpeedGUI(Node):
         self.labels = {}
         self.vel_names = ["XY", "YZ", "XZ"]
 
-        for i, name in enumerate(self.vel_names):#sliders
+        for i, name in enumerate(self.vel_names):###sliders
             frame = tk.Frame(self.frame)
             frame.grid(row=0, column=i, padx=15)
 
@@ -29,7 +29,7 @@ class WheelSpeedGUI(Node):
             self.sliders[name] = tk.Scale(frame, from_=20, to=-20, resolution=0.1, orient=tk.VERTICAL, length=200, command=self.publish_speeds)
             self.sliders[name].pack()
 
-        # Reset button
+        ###reset button
         self.reset_button = tk.Button(self.root, text="Reset", command=self.reset_speeds, bg="red", fg="white", font=("Arial", 12))
         self.reset_button.pack(pady=10)
 
