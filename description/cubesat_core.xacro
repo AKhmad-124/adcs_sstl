@@ -67,11 +67,15 @@
     <gazebo reference='sat_body'>
         <material>Gazebo/Orange </material>
     </gazebo>
+
+
+    <!-- ########################################################################### -->
+
     <!-- reaction_wheel_xz link (lettering referes to the plane parallel to them) -->
     <joint name="rec_wheel_xz_joint" type="continuous">
         <parent link="sat_body" />
         <child link="rec_wheel_xz" />
-        <origin xyz="0.0 0.05 0.0" rpy="-${pi/2} 0 0" />
+        <origin xyz="0.0 -0.05 0.0" rpy="-${pi/2} 0 0" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
 
@@ -97,6 +101,38 @@
     <gazebo reference='rec_wheel_xz'>
         <material>Gazebo/Motorway</material>
     </gazebo>
+        <!-- reaction_wheel_xz link (lettering referes to the plane parallel to them) -->
+    <joint name="rec_wheel_xz_jointbrother" type="continuous">
+        <parent link="sat_body" />
+        <child link="rec_wheel_xzbrother" />
+        <origin xyz="0.0 0.05 0.0" rpy="-${pi/2} 0 0" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+
+    <link name="rec_wheel_xzbrother">
+        <visual>
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="0.04" />
+                <material name="black" />
+            </geometry>
+        </visual>
+        <collision>
+
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="0.04" />
+            </geometry>
+
+        </collision>
+        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="${wheel_radius}">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </xacro:inertial_cylinder>
+
+    </link>
+    <gazebo reference='rec_wheel_xzbrother'>
+        <material>Gazebo/Motorway</material>
+    </gazebo>
+
+    <!-- ############################################################################ -->
 
     <!-- reaction wheel in yz plane link -->
     <joint name="rec_wheel_yz_joint" type="continuous">
@@ -129,6 +165,38 @@
         <material>Gazebo/Motorway</material>
     </gazebo>
 
+        <!-- reaction wheel in yz plane link -->
+    <joint name="rec_wheel_yz_jointbrother" type="continuous">
+        <parent link="sat_body" />
+        <child link="rec_wheel_yzbrother" />
+        <origin xyz="-0.05 0.0 0.0" rpy="0 ${pi/2} 0" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+
+    <link name="rec_wheel_yzbrother">
+        <visual>
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="0.04" />
+                <material name="black" />
+            </geometry>
+        </visual>
+        <collision>
+
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="0.04" />
+            </geometry>
+
+        </collision>
+        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="${wheel_radius}">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </xacro:inertial_cylinder>
+
+    </link>
+    <gazebo reference='rec_wheel_yzbrother'>
+        <material>Gazebo/Motorway</material>
+    </gazebo>
+
+<!-- #################################################################################### -->
     <!-- reaction wheel in xy plane link -->
     <joint name="rec_wheel_xy_joint" type="continuous">
         <parent link="sat_body" />
@@ -157,6 +225,38 @@
 
     </link>
     <gazebo reference='rec_wheel_xy'>
+        <material>Gazebo/Motorway</material>
+    </gazebo>
+
+
+    <!-- reaction wheel in xy plane link  brother -->
+    <joint name="rec_wheel_xy_jointbrother" type="continuous">
+        <parent link="sat_body" />
+        <child link="rec_wheel_xybrother" />
+        <origin xyz="0.0 0.0 0.15" rpy="0 ${pi} 0" />
+        <axis xyz="0.0 0.0 1.0" />
+    </joint>
+
+    <link name="rec_wheel_xybrother">
+        <visual>
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="0.04" />
+                <material name="black" />
+            </geometry>
+        </visual>
+        <collision>
+
+            <geometry>
+                <cylinder radius="${wheel_radius}" length="0.04" />
+            </geometry>
+
+        </collision>
+        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="${wheel_radius}">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </xacro:inertial_cylinder>
+
+    </link>
+    <gazebo reference='rec_wheel_xybrother'>
         <material>Gazebo/Motorway</material>
     </gazebo>
 

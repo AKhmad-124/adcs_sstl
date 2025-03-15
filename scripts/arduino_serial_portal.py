@@ -52,7 +52,7 @@ class SerialReader(Node):
             try:
 
                 data = self.serial_port.readline().decode('utf-8', errors='ignore').strip()
-
+                print(data)
 
                 # Ensure the message is properly delimited
                     
@@ -62,15 +62,16 @@ class SerialReader(Node):
                 # print(self.imu_string)
                 
 
-                # if len(list_of_data)!=6:
+                if len(list_of_data)!=6:
                     
-                #     print(f"\033[31mbad data:::::::!\033[0m{data}")
-                # else:
-                #     print(list_of_data)
+                    print(f"\033[31mbad data:::::::!\033[0m{data}")
+                else:
+                    print(list_of_data)
                 rec_wheel_to_publish = []
                 for i in range(3):
                     rec_wheel_to_publish.append(float(list_of_data[i]))  # First 3 values as floats
                 if len(rec_wheel_to_publish) == 3:  # Ensure correct size
+                    print(rec_wheel_to_publish)
                     msg = Float32MultiArray()
                     msg.data = rec_wheel_to_publish
                     self.publisher_.publish(msg)
